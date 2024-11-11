@@ -1,0 +1,18 @@
+{
+  "name": "microserviciomesas",
+  "version": "1.0.0",
+  "description": "microservicio sobre las mesas a reservar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Mikel Morales",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
