@@ -25,9 +25,9 @@ app.get('/restaurants/city/:city', async (req, res) => {
         barrio: restaurante.location.address1,
         ciudad: restaurante.location.city,
         telefono: restaurante.display_phone,
-        
+
       }
-    })
+    }) 
 
     res.json(restaurantes)
 
