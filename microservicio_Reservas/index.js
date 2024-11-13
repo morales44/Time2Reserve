@@ -97,6 +97,25 @@ app.get('/restaurants/id/:restauranteID', async (req, res) => {
   }
 });
 
+/*async function getAllcategories(){
+  try {
+    const restaurantesBBDD = await Restaurante.find();
+
+    const categorias = []
+
+    for (restaurante in restaurantesBBDD){
+      for (categoria in restaurante['categorias']) {
+        if (!categorias.includes(categoria)){
+          categ
+        }
+      }
+    }
+
+  } catch (error) {
+    console.log("error al obtener todas las categorias: " + error)
+  }
+}*/
+
 app.listen(port, () => {
     console.log("Servidor escuchando en puerto " + port)
 })
