@@ -85,6 +85,18 @@ app.get('/restaurants/city/:city', async (req, res) => {
   }
 })
 
+app.get('/restaurants/id/:restauranteID', async (req, res) => {
+  try {
+      const restaurante = await Restaurante.findOne({ id: req.params.restauranteID });
+      if (!restaurante) {
+          return res.status(404).json({ error: "Restaurante no encontrado" });
+      }
+      res.json(restaurante);
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(port, () => {
     console.log("Servidor escuchando en puerto " + port)
 })
