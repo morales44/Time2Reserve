@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://root:root@restaurantes.vbew3.mongodb.net/?retryWrites=true&w=majority&appName=Restaurantes"
+}
