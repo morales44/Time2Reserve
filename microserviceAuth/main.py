@@ -90,3 +90,7 @@ async def register(user_data: User):
     cursor.close()
     
     return {"message": "User registered successfully"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="localhost", port=8000)
