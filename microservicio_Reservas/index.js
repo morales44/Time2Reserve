@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const port = 6000
+const port = 7000
 const axios = require('axios')
 const mongoose = require('mongoose')
 const connectDB = require('./config/db');

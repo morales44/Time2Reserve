@@ -1,0 +1,15 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "main": "gateway.js",
+  "scripts": {
+    "start": "node gateway.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "http-proxy": "^1.18.1"
+  }
+}
