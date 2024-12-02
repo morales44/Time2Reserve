@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    background-color: #FFD700; /* Fondo amarillo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+  }
+  
+  .auth-container {
+    background-color: #FFF8DC; /* Fondo color crema, combina con amarillo */
+    width: 400px; /* Ancho mayor para hacer el login más grande */
+    padding: 50px; /* Más espacio interior */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    text-align: center;
+  }
+  
+  .auth-container h1 {
+    font-size: 2.5em; /* Título más grande */
+    color: #333; /* Texto más oscuro */
+    margin-bottom: 20px;
+  }
+  
+  .auth-container label {
+    display: block;
+    font-size: 1.2em; /* Fuente más grande */
+    color: #555; /* Color intermedio */
+    margin: 15px 0 10px 0;
+  }
+  
+  .auth-container input {
+    width: calc(100% - 20px); /* Ajuste del ancho */
+    padding: 15px; /* Entrada más cómoda */
+    margin-bottom: 20px;
+    border: 1px solid #CCC;
+    border-radius: 10px; /* Bordes más redondeados */
+    font-size: 1em;
+  }
+  
+  .auth-button {
+    width: calc(100% - 20px);
+    background-color: #333; /* Fondo oscuro */
+    color: #FFD700; /* Texto amarillo */
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Nueva animación */
+    margin-bottom: 20px; /* Espaciado */
+  }
+  
+  .auth-button:hover {
+    background-color: #FFD700; /* Fondo amarillo brillante */
+    color: #333; /* Texto oscuro */
+    transform: rotate(2deg) scale(1.1); /* Ligera rotación y aumento de tamaño */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+  }
+  
+  
+  .google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #dadce0;
+    margin-top: 15px; /* Espacio superior entre botones */
+    font-size: 16px; /* Más grande */
+    font-weight: 500;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 10px;
+    width: 100%; /* Ancho completo */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px; /* Más espacio inferior */
+  }
+  
+  .google-button:hover {
+    background-color: #f7f8f9;
+    box-shadow: 0 4px 8px rgba(60, 64, 67, 0.3);
+    transform: scale(1.05); /* Pequeño aumento */
+  }
+  
+  
+  .google-icon {
+    height: 25px;
+    width: 25px;
+    margin-right: 12px;
+  }
+  
+  .auth-link {
+    text-decoration: none;
+    color: #555; /* Enlace oscuro */
+    margin-top: 15px;
+  }
+  
+  .auth-link:hover {
+    text-decoration: underline;
+    color: #333;
+  }
+  
+  .auth-register {
+    text-decoration: none;
+    color: #333;
+    margin-top: 20px;
+    display: block; /* Para que aparezca en su propia línea */
+  }
+  
+  .auth-register:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  hr {
+    color: #333; /* Línea más oscura */
+    margin: 20px 0;
+  }
+  

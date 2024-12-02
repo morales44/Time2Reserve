@@ -45,7 +45,7 @@ const Auth = ({onLogin})=> {
 
     return (
         <div className="auth-container">
-            <h1 className="auth-title">Bici Tech</h1>
+            <h1 className="auth-title">Time2Reserve</h1>
             <div className="auth-input-container">
                 <input
                     type="text"
