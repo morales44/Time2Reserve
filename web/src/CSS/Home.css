@@ -1,0 +1,56 @@
+/* Estilos generales */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; 
+  padding-top: 10vh; 
+  min-height: 100vh;
+  background-color: #FFD700; 
+  color: #333; 
+  font-family: 'Playfair Display', serif; 
+}
+
+  .titulo {
+    font-size: 2.0em;
+    color: #333;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+
+  .contenido {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem; 
+    padding: 2rem;
+    background: #ffffff;
+    margin-top: 50px;
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 1000px; /* Máximo ancho del contenedor */
+    height: 300px;
+  }
+  
+  .texto {
+    flex: 1;
+  }
+
+  h2 {
+    text-align: justify;
+  }
+  
+  .subtitulo {
+    font-size: 1rem;
+    line-height: 1.6; 
+    color: #555; 
+  }
+  
+  .home-logo {
+    width: 250px; 
+    height: auto; 
+    flex-shrink: 0; /* Evitar que el logo se reduzca */
+  }
+  
