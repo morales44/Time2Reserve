@@ -6,51 +6,87 @@
   justify-content: flex-start; 
   padding-top: 10vh; 
   min-height: 100vh;
-  background-color: #FFD700; 
+  background-image: url('../CSS/Imagenes/fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
   color: #333; 
   font-family: 'Playfair Display', serif; 
 }
 
-  .titulo {
-    font-size: 2.0em;
-    color: #333;
-    margin-top: -20px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
 
-  .contenido {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem; 
-    padding: 2rem;
-    background: #ffffff;
-    margin-top: 50px;
-    border-radius: 10px; /* Bordes redondeados */
-    max-width: 1000px; /* Máximo ancho del contenedor */
-    height: 300px;
-  }
-  
-  .texto {
-    flex: 1;
-  }
+.titulo {
+  font-size: 2.0em;
+  color: #333;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
 
-  h2 {
-    text-align: justify;
-  }
-  
-  .subtitulo {
-    font-size: 1rem;
-    line-height: 1.6; 
-    color: #555; 
-  }
-  
-  .home-logo {
-    width: 250px; 
-    height: auto; 
-    flex-shrink: 0; /* Evitar que el logo se reduzca */
-  }
-  
+.contenido {
+  display: flex;
+  flex-direction: column; /* Cambiado a columna para incluir la barra de búsqueda arriba del texto */
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; 
+  padding: 2rem;
+  background: #FFD700;
+  margin-top: 50px;
+  border-radius: 10px; /* Bordes redondeados */
+  max-width: 1000px; /* Máximo ancho del contenedor */
+  width: 90%; /* Ancho responsivo */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para mayor contraste */
+}
+
+.texto {
+  flex: 1;
+  margin-top: 20px; /* Espacio entre la barra y el texto */
+}
+
+h2 {
+  text-align: justify;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  line-height: 1.6; 
+  color: #555; 
+}
+
+.home-logo {
+  width: 250px; 
+  height: auto; 
+  flex-shrink: 0; /* Evitar que el logo se reduzca */
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Espaciado entre la barra y el texto */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.search-input {
+  width: 85%; /* Hace la barra de búsqueda más larga */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
