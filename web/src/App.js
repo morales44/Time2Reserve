@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Auth from './Components/Auth/Auth';
-import Home from './Components/Restaurants/Home';
+import Home from './Components/restaurants/Home';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
