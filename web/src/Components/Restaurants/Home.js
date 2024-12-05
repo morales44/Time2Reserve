@@ -1,11 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import '../../CSS/Home.css';
 
 const Home = () => (
+  <div className='general'>
   <main className="home" role="main">
-    <header>
-      <h1 className="titulo">TIME2RESERVE</h1>
-    </header>
     <section className="contenido">
       {/* Barra de búsqueda */}
       <div className="search-bar">
@@ -19,6 +18,10 @@ const Home = () => (
         </button>
       </div>
 
+
+      <Link to={`/restaurantes`} className="details-button">
+                Ver detalles
+            </Link>
       {/* Contenido principal */}
       <div>
         <article className="texto">
@@ -31,6 +34,7 @@ const Home = () => (
       </div>
     </section>
   </main>
+  </div>
 );
 
 export default Home;

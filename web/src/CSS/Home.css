@@ -6,14 +6,17 @@
   justify-content: flex-start; 
   padding-top: 10vh; 
   min-height: 100vh;
-  background-image: url('../CSS/Imagenes/fondo.jpg'); /* Reemplaza con la ruta de tu imagen */
   background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   color: #333; 
   font-family: 'Playfair Display', serif; 
+  margin-top: -80px;
 }
 
+.general{
+  width: 100%;
+}
 
 .titulo {
   font-size: 2.0em;
@@ -30,7 +33,7 @@
   justify-content: center;
   gap: 2rem; 
   padding: 2rem;
-  background: #FFD700;
+  background: #FFECB3;
   margin-top: 50px;
   border-radius: 10px; /* Bordes redondeados */
   max-width: 1000px; /* Máximo ancho del contenedor */

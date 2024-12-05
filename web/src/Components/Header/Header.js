@@ -5,7 +5,7 @@ import '../../CSS/Header.css';
 const Header = ({onLogout}) => {
   return (
     <header className="header">
-      <h1>Bici Tech</h1>
+      <h1>Time2Reserve</h1>
       <div className="menu-container">
         <nav className="menu">
           <Link to="/favorites">Favoritos</Link>

@@ -1,80 +1,53 @@
 .header {
-    position: relative;
-    background-image: url('images/fondoApp.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 15vh;
-    display: inline-block;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .header h1 {
-    font-size: 3.5em;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin: 3vh;
-    margin-left: 70vh;
-  }
-  
-  .header p {
-    font-size: 1.5em;
-  }
-  
-  .menu-container {
-    margin: 0;
-    display: inline-block;
-    margin-left: 25vh;
-  }
-  
-  .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .menu a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.2em;
-    margin: 0 20px;
-  }
-  
-  .menu a:hover {
-    color: #ffcc00;
-  }
-  
-  .separator {
-    width: 50%;
-    height: 1px;
-    background-color: #fff;
-    margin: 10px auto;
-  }
-  
-  .profile-image {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .profile-image img {
-    color: #fff;
-    max-width: 100px;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-  }
-  
-  .logout-button {
-    background-color: transparent;
-    font-size: 1.1em;
-  }
-  
-  .logout-button:hover {
-    color: #ffcc00;
-  }
+  position: relative;
+  background-color: #ffffff;
+  padding: 40px 0; /* Mantén este para separación interna */
+  margin-top: 30vh; /* Baja el header más abajo de la pantalla */
+  border-bottom: 2px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+}
+
+
+.header h1 {
+  font-size: 2.5em; /* Tamaño más manejable */
+  color: #333; /* Texto oscuro */
+  margin: 10px 0; /* Espaciado superior e inferior */
+}
+
+.menu-container {
+  margin-top: 10px; /* Separación con el título */
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Espaciado uniforme entre enlaces */
+}
+
+.menu a {
+  text-decoration: none;
+  color: #555; /* Texto más oscuro */
+  font-size: 1.2em;
+  transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+}
+
+.menu a:hover {
+  color: #007bff; /* Azul claro para resaltar */
+}
+
+.logout-button {
+  background-color: #007bff; /* Botón azul */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
