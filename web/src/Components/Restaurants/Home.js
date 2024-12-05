@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import '../../CSS/Home.css';
 
 const Home = () => (
-  <div className='general'>
   <main className="home" role="main">
     <section className="contenido">
       {/* Barra de búsqueda */}
@@ -34,7 +33,6 @@ const Home = () => (
       </div>
     </section>
   </main>
-  </div>
 );
 
 export default Home;

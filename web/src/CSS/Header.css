@@ -1,13 +1,16 @@
 .header {
-  position: relative;
+  position: fixed; /* Fija el header en la parte superior */
+  top: 0; /* Alinea en la parte superior */
+  left: 0; /* Alinea al inicio */
+  width: 100%; /* Estira al ancho completo */
   background-color: #ffffff;
-  padding: 40px 0; /* Mantén este para separación interna */
-  margin-top: 30vh; /* Baja el header más abajo de la pantalla */
+  padding: 20px 0; /* Reduce el padding interno */
   border-bottom: 2px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 100%;
+  z-index: 1000; /* Mantén el header por encima del resto del contenido */
 }
+
 
 
 .header h1 {
@@ -22,9 +25,11 @@
 
 .menu {
   display: flex;
-  justify-content: center;
+  justify-content: space-around; /* Espacio uniforme entre los elementos */
   align-items: center;
-  gap: 20px; /* Espaciado uniforme entre enlaces */
+  gap: 10px; /* Reduce el espaciado */
+  width: 100%; /* Haz que ocupen todo el ancho */
+  padding: 0 20px; /* Relleno lateral para un diseño más limpio */
 }
 
 .menu a {
