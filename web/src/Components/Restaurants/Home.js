@@ -17,10 +17,6 @@ const Home = () => (
         </button>
       </div>
 
-
-      <Link to={`/restaurantes`} className="details-button">
-                Ver detalles
-            </Link>
       {/* Contenido principal */}
       <div>
         <article className="texto">

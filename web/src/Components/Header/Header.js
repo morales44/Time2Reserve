@@ -8,8 +8,11 @@ const Header = ({onLogout}) => {
       <h1>Time2Reserve</h1>
       <div className="menu-container">
         <nav className="menu">
+          <Link to="/Home">Inicio</Link>
+          <Link to={`/restaurantes`} className="details-button">
+                Restaurantes
+            </Link>
           <Link to="/favorites">Favoritos</Link>
-          <Link to="/roads">Carriles</Link>
           <button onClick={onLogout} className="logout-button">
             Cerrar sesión
           </button>

@@ -4,19 +4,20 @@
   left: 0; /* Alinea al inicio */
   width: 100%; /* Estira al ancho completo */
   background-color: #ffffff;
-  padding: 20px 0; /* Reduce el padding interno */
+  padding: 15px 0; /* Reduce el padding interno */
   border-bottom: 2px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   z-index: 1000; /* Mantén el header por encima del resto del contenido */
 }
 
-
-
 .header h1 {
-  font-size: 2.5em; /* Tamaño más manejable */
+  font-family: 'Playfair Display', serif; /* Fuente elegante para el título */
+  font-size: 2.8em; /* Tamaño ligeramente más grande */
+  font-weight: 700; /* Negrita */
   color: #333; /* Texto oscuro */
-  margin: 10px 0; /* Espaciado superior e inferior */
+  margin: 5px 0; /* Menor espaciado superior e inferior */
+  letter-spacing: 1px; /* Añade espacio entre letras para elegancia */
 }
 
 .menu-container {
@@ -33,9 +34,11 @@
 }
 
 .menu a {
+  font-family: 'Roboto', sans-serif; /* Fuente moderna para los enlaces */
   text-decoration: none;
   color: #555; /* Texto más oscuro */
   font-size: 1.2em;
+  font-weight: 500; /* Peso medio */
   transition: color 0.3s ease; /* Transición suave al pasar el mouse */
 }
 
@@ -44,15 +47,19 @@
 }
 
 .logout-button {
+  font-family: 'Roboto', sans-serif; /* Fuente moderna para el botón */
   background-color: #007bff; /* Botón azul */
   color: #fff;
   border: none;
   padding: 8px 16px;
+  font-size: 1em; /* Tamaño de letra ajustado */
+  font-weight: 500; /* Peso medio */
   border-radius: 5px; 
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .logout-button:hover {
   background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Ligero zoom al pasar el mouse */
 }
