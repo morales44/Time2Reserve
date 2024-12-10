@@ -8,6 +8,9 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
+from google.oauth2 import id_token
+
+from google.auth.transport import requests
 
 db = pymysql.connect(
     host="localhost",
@@ -90,6 +93,29 @@ async def register(user_data: User):
     cursor.close()
     
     return {"message": "User registered successfully"}
+
+@app.post("/auth/google")
+async def google_login(user: dict):
+    cursor = db.cursor()
+    print(user)
+            
+    # Check if the user already exists in the database
+    query = "SELECT * FROM user WHERE name=%s"
+    cursor.execute(query, (user["credentialResponseDecoded"]["name"],))
+    
+    existing_user = cursor.fetchone()
+
+    if existing_user:
+        cursor.close()
+        token = create_jwt_token({"sub": existing_user["username"]})
+        return {"access_token": token, "token_type": "bearer"}
+    else:
+        query = "INSERT INTO user (username, name, password) VALUES (%s, %s, %s)"
+        cursor.execute(query, (user["credentialResponseDecoded"]["name"], user["credentialResponseDecoded"]["given_name"],""))
+        db.commit()
+        cursor.close()
+        token = create_jwt_token({"sub": user["credentialResponseDecoded"]["name"]})
+        return {"access_token": token, "token_type": "bearer"}
 
 if __name__ == "__main__":
     import uvicorn
