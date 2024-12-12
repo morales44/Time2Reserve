@@ -32,11 +32,11 @@ const Auth = ({onLogin})=> {
                 localStorage.setItem('token', response.data.access_token);
                 onLogin();
                 navigate('/home');
-                console.log('INICIO DE SESIÓN EXITOSO', response.data);
+                console.log('INICIO DE SESIÓN', response.data);
                 setError('');
             }
         } catch (error) {
-            console.error('Error de inicio de sesión:', error);
+            console.error('Error a la hora de iniciar sesión:', error);
             if (error.response && error.response.status === 401) {
                 setError('Usuario o contraseña incorrectos. Intentelo de nuevo.');
             } else {

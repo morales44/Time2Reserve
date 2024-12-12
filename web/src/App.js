@@ -5,6 +5,7 @@ import Header from './Components/header/Header'
 import Auth from './Components/Auth/Auth';
 import Home from './Components/restaurants/Home'
 import Restaurante from './Components/restaurants/restaurantes'
+import Register from './Components/Auth/Register.js';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Auth onLogin={handleLogin} />} />
           <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />
           <Route path="/restaurantes" element={<Restaurante />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
