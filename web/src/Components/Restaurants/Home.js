@@ -6,13 +6,13 @@ const Home = () => (
   <main className="home" role="main">
     <section className="contenido">
       {/* Barra de búsqueda */}
-      <div className="search-bar">
+      <div className="search-bar1">
         <input
           type="text"
-          className="search-input"
+          className="search-input1"
           placeholder="Buscar restaurantes..."
         />
-        <button className="search-button" type="button">
+        <button className="search-button1" type="button">
           Buscar
         </button>
       </div>
