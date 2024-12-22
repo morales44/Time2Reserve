@@ -1,6 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 import '../../CSS/Home.css';
+import amaren from '../../CSS/Imagenes/amaren.jpg';
+import bertys from '../../CSS/Imagenes/bertys.jpg';
+
+const restaurants = [
+  { name: "Restaurante Amaren Bilbao", image: amaren },
+  { name: "Restaurante Bertys", image: bertys },
+  { name: "Sabores del Mundo", image: "https://via.placeholder.com/300" },
+  { name: "El Fogón de Pepe", image: "https://via.placeholder.com/300" },
+  { name: "Delicias Andinas", image: "https://via.placeholder.com/300" },
+  { name: "Casa Bella", image: "https://via.placeholder.com/300" },
+  { name: "El Rincón Vegetariano", image: "https://via.placeholder.com/300" },
+  { name: "Mariscos La Ola", image: "https://via.placeholder.com/300" },
+  { name: "Pizzería Bella Italia", image: "https://via.placeholder.com/300" },
+  { name: "Sushi & Rolls", image: "https://via.placeholder.com/300" },
+];
 
 const Home = () => (
   <main className="home" role="main">
@@ -17,15 +31,14 @@ const Home = () => (
         </button>
       </div>
 
-      {/* Contenido principal */}
-      <div>
-        <article className="texto">
-          <h2 className="subtitulo">
-            La plataforma que te ayuda a descubrir y explorar los mejores lugares para andar en bicicleta, ya sea en rutas naturales tranquilas o recorridos urbanos desafiantes. Encuentra destinos increíbles, adaptados a tu nivel y preferencias, para disfrutar al máximo cada aventura en dos ruedas.
-            <br /><br />
-            Descubre todos los carriles disponibles en tu ciudad y explora una red de rutas ideales para disfrutar de un paseo en bicicleta. Ya sea que prefieras un recorrido tranquilo o un trayecto más largo, estos carriles ofrecen opciones seguras y cómodas para ciclistas de todos los niveles. Así que, ¿qué esperas para comenzar a pedalear y descubrir nuevos destinos?
-          </h2>
-        </article>
+      {/* Galería de restaurantes */}
+      <div className="gallery">
+        {restaurants.map((restaurant, index) => (
+          <div key={index} className="gallery-item">
+            <img src={restaurant.image} alt={restaurant.name} />
+            <p>{restaurant.name}</p>
+          </div>
+        ))}
       </div>
     </section>
   </main>

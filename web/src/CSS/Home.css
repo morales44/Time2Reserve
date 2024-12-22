@@ -1,28 +1,20 @@
-/* Estilos generales */
+/* Fondo general */
 .home {
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* Ocupa todo el ancho */
+  align-items: stretch;
   justify-content: flex-start;
   padding-top: 10vh;
   min-height: 100vh;
-  width: 100%; /* Ocupa todo el ancho */
-  background-size: cover; 
-  background-position: center; 
+  width: 100%;
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   color: #333;
   font-family: 'Playfair Display', serif;
-  margin: 0; /* Elimina el margen */
-  box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+  margin: 0;
+  box-sizing: border-box;
   margin-top: 200px;
-}
-
-.titulo {
-  font-size: 2.0em;
-  color: #333;
-  margin-top: -20px;
-  margin-bottom: 10px;
-  text-align: center;
 }
 
 .contenido {
@@ -32,45 +24,27 @@
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
-  background: #FFECB3;
-  margin: 0; /* Elimina márgenes para ajustarse al contenedor */
-  border-radius: 0; /* Elimina bordes redondeados para abarcar todo */
-  width: 100%; /* Estira al ancho completo */
-  box-shadow: none; /* Opcional: elimina la sombra para un diseño uniforme */
+  background: rgba(255, 236, 179, 0.9); /* Amarillo transparente */
+  margin: 0;
+  width: 93vw; /* Abarca todo el ancho de la ventana */
+  height: auto; /* Se adapta al contenido */
+  max-height: 70vh; /* Limita la altura para permitir el desplazamiento */
+  overflow-y: auto; /* Habilita la barra de desplazamiento vertical */
+  box-shadow: none; /* Elimina la sombra */
+  border-radius: 0; /* Sin bordes redondeados */
 }
 
-.texto {
-  flex: 1;
-  margin-top: 20px; /* Espacio entre la barra y el texto */
-}
 
-h2 {
-  text-align: justify;
-}
-
-.subtitulo {
-  font-size: 1rem;
-  line-height: 1.6; 
-  color: #555; 
-}
-
-.home-logo {
-  width: 250px; 
-  height: auto; 
-  flex-shrink: 0; /* Evitar que el logo se reduzca */
-}
-
-/* Estilos para la barra de búsqueda */
 .search-bar1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; /* Espaciado entre la barra y el texto */
-  width: 100%; /* Ocupa todo el ancho del contenedor */
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .search-input1 {
-  width: 85%; /* Hace la barra de búsqueda más larga */
+  width: 85%;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -90,4 +64,59 @@ h2 {
 
 .search-button1:hover {
   background-color: #0056b3;
+}
+
+/* Galería de fotos */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 2rem; /* Más separación entre los div blancos */
+  width: 100%;
+  max-width: 800px; /* Ancho máximo */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación al pasar el cursor */
+  margin: 1rem; /* Más separación alrededor de cada div */
+}
+
+.gallery-item img {
+  width: 100%;
+  max-width: 200px; /* Tamaño uniforme para las imágenes */
+  height: 150px; /* Fija una altura para todas las imágenes */
+  object-fit: cover; /* Recorta la imagen para que se ajuste al contenedor */
+  border-radius: 4px;
+  transition: transform 0.3s ease; /* Animación para la imagen */
+}
+
+
+.gallery-item p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  transition: font-size 0.3s ease; /* Animación para el texto */
+}
+
+/* Efectos al pasar el cursor */
+.gallery-item:hover {
+  transform: scale(1.1); /* Agranda el div completo */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1); /* Agranda la imagen */
+}
+
+.gallery-item:hover p {
+  font-size: 1rem; /* Agranda el texto */
 }
