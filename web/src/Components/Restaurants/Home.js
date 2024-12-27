@@ -30,16 +30,37 @@ const Home = () => {
   const [restaurantDetails, setRestaurantDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const API_KEY = "Qlq1B||da9UnjOUBTSjgUJrItg7\\8_fiVpJCkFROdfi9VKNgs3ImAP7_9B9AM9HjOdMZouG5Hyg9DrkHUw/D6X-mx9pJg63_TtmOu8cmkwEZzKBgjT2BkhZ3Yx";
+
   const fetchRestaurantDetails = async (restaurantName) => {
     setIsLoading(true); // Mostrar "Cargando datos..."
     try {
-      const response = await axios.get(`http://localhost:7000/restaurants/city/Zaragoza`);
-      const data = response.data;
+      const response = await axios.get('https://api.yelp.com/v3/businesses/search', {
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+        },
+        params: {
+          term: restaurantName,
+          location: 'Spain', // Puedes ajustar la ubicación si es necesario
+        },
+      });
 
-      // Busca el restaurante por nombre
-      const selectedRestaurant = data.find((item) => item.name.toLowerCase() === restaurantName.toLowerCase());
+      const businesses = response.data.businesses;
+      const selectedRestaurant = businesses.find((business) =>
+        business.name.toLowerCase().includes(restaurantName.toLowerCase())
+      );
+
       if (selectedRestaurant) {
-        setRestaurantDetails(selectedRestaurant);
+        setRestaurantDetails({
+          name: selectedRestaurant.name,
+          address: selectedRestaurant.location.address1,
+          city: selectedRestaurant.location.city,
+          phone: selectedRestaurant.phone || "No disponible",
+          categories: selectedRestaurant.categories.map((cat) => cat.title),
+          isOpen: selectedRestaurant.hours
+            ? selectedRestaurant.hours[0].is_open_now
+            : false,
+        });
       } else {
         alert("No se encontraron datos para el restaurante seleccionado.");
         setSelectedRestaurant(null); // Cierra el popup si no hay coincidencias
@@ -104,11 +125,11 @@ const Home = () => {
           ) : restaurantDetails ? (
             <div className="popup-content">
               <h2>{restaurantDetails.name}</h2>
-              <p><strong>Dirección:</strong> {restaurantDetails.barrio}</p>
-              <p><strong>Teléfono:</strong> {restaurantDetails.telefono || "No disponible"}</p>
-              <p><strong>Ciudad:</strong> {restaurantDetails.ciudad}</p>
-              <p><strong>Categorías:</strong> {restaurantDetails.categorias.map((cat) => cat.title).join(", ")}</p>
-              <p><strong>Abierto:</strong> {restaurantDetails.abierto ? "Sí" : "No"}</p>
+              <p><strong>Dirección:</strong> {restaurantDetails.address}</p>
+              <p><strong>Teléfono:</strong> {restaurantDetails.phone}</p>
+              <p><strong>Ciudad:</strong> {restaurantDetails.city}</p>
+              <p><strong>Categorías:</strong> {restaurantDetails.categories.join(", ")}</p>
+              <p><strong>Abierto:</strong> {restaurantDetails.isOpen ? "Sí" : "No"}</p>
             </div>
           ) : (
             <p>Error cargando los datos del restaurante.</p>
