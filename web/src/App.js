@@ -6,6 +6,7 @@ import Auth from './Components/Auth/Auth';
 import Home from './Components/restaurants/Home';
 import Restaurante from './Components/restaurants/restaurantes';
 import Register from './Components/Auth/Register';
+import DetalleRestaurante from './Components/restaurants/DetalleRestaurante';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -46,6 +47,10 @@ function App() {
             element={isAuthenticated ? <Restaurante /> : <Navigate to="/" />}
           />
           <Route path="/register" element={<Register />} />
+          <Route
+            path="restaurants/name/:name"
+            element={isAuthenticated ? <DetalleRestaurante /> : <Navigate to="/" />}
+          />
         </Routes>
       </>
     );

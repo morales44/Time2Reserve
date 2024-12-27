@@ -97,6 +97,18 @@ app.get('/restaurants/id/:restauranteID', async (req, res) => {
   }
 });
 
+app.get('/restaurants/name/:restauranteName', async (req, res) => {
+  try {
+      const restaurante = await Restaurante.findOne({ name: req.params.restauranteName });
+      if (!restaurante) {
+          return res.status(404).json({ error: "Restaurante no encontrado" });
+      }
+      res.json(restaurante);
+  } catch (error) {
+      res.status(500).json({ error: error.message });
+  }
+});
+
 app.get('/restaurants/getCategories', async (req, res) => {
   try {
     const restaurantesBBDD = await Restaurante.find();
