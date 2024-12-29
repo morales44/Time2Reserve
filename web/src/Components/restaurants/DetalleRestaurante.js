@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import '../../CSS/DetalleRestaurante.css';
 
 const DetallesRestaurante = () => {
     const { name } = useParams();
+    const navigate = useNavigate();
+    const location = useLocation(); // Para obtener la imagen pasada en el estado
     const [restaurant, setRestaurant] = useState(null);
-    const [loading, setLoading] = useState(true); // Inicializamos `loading` como `true`.
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Reinicia los estados para permitir nuevas consultas.
         setRestaurant(null);
         setLoading(true);
 
@@ -17,33 +19,41 @@ const DetallesRestaurante = () => {
             .get(`/api/restaurants/name/${name}`)
             .then(response => {
                 console.log("Datos del restaurante:", response.data);
-                setRestaurant(response.data); // Guardamos los datos del restaurante.
+                setRestaurant(response.data);
             })
             .catch(error => {
                 console.error("Error obteniendo los datos del restaurante:", error);
             })
             .finally(() => {
-                setLoading(false); // Finalizamos el indicador de carga después de obtener los datos o si ocurre un error.
+                setLoading(false);
             });
-    }, [name]); // Se ejecuta cada vez que `name` cambia.
+    }, [name]);
 
-    // Manejamos el estado de carga.
     if (loading) {
         return <p>Cargando...</p>;
     }
 
-    // Manejamos el caso en el que no se encuentra el restaurante.
     if (!restaurant) {
         return <p>No se encontraron datos para el restaurante.</p>;
     }
 
-    // Renderizamos los datos del restaurante cuando están disponibles.
+    const image = location.state?.image || ''; // Obtener la imagen pasada desde el Link
+
     return (
-        <div>
-            <h1>Restaurante: {restaurant.name}</h1>
-            <h1>Restaurante: {restaurant.ciudad}</h1>
-            <h1>Restaurante: {restaurant.name}</h1>
-            <h1>Restaurante: {restaurant.name}</h1>
+        <div className="restaurant-details-container">
+            {/* Flecha de regreso */}
+            <button className="back-button" onClick={() => navigate(-1)}>←</button>
+
+            {/* Imagen del restaurante */}
+            <div className="restaurant-image">
+                <img src={image} alt={restaurant.name} />
+            </div>
+
+            {/* Detalles del restaurante */}
+            <h2>{restaurant.name}</h2>
+            <p>Ciudad: {restaurant.ciudad}</p>
+            <p>Dirección: {restaurant.direccion}</p>
+            <p>Teléfono: {restaurant.telefono}</p>
         </div>
     );
 };
