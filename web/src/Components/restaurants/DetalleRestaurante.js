@@ -52,7 +52,7 @@ const DetallesRestaurante = () => {
             {/* Detalles del restaurante */}
             <h2>{restaurant.name}</h2>
             <p>Ciudad: {restaurant.ciudad}</p>
-            <p>Dirección: {restaurant.direccion}</p>
+            <p>Dirección: {restaurant.barrio}</p>
             <p>Teléfono: {restaurant.telefono}</p>
         </div>
     );

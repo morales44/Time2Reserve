@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import '../../CSS/Restaurantes.css';
+import DatosCiudad from './DatosCiudad';
+import { useNavigate } from "react-router-dom"; // Agregado para redirección
 
 const ciudades = [
     { nombre: "Madrid", descripcion: "Conoce los mejores restaurantes en Madrid" },
@@ -17,10 +19,14 @@ const ciudades = [
 const Restaurante = () => {
     const [selectedCity, setSelectedCity] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate(); // Para redirigir a otra ruta
 
     const handleCityClick = (city) => {
         setSelectedCity(city);
         setSearchTerm(""); // Reinicia el término de búsqueda al abrir una nueva ciudad
+
+        // Redirige a la página de restaurantes de la ciudad
+        navigate(`/restaurants/city/${city.nombre}`);
     };
 
     const handleClose = () => {
@@ -64,6 +70,8 @@ const Restaurante = () => {
                     />
                 </div>
             )}
+
+          
         </div>
     );
 };

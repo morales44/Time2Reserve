@@ -24,7 +24,7 @@
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
-  background: rgba(255, 236, 179, 0.9); /* Amarillo transparente */
+  background: rgba(109, 109, 108, 0.9); 
   margin: 0;
   width: 93vw; /* Abarca todo el ancho de la ventana */
   height: auto; /* Se adapta al contenido */

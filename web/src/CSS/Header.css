@@ -1,65 +1,73 @@
 .header {
-  position: fixed; /* Fija el header en la parte superior */
-  top: 0; /* Alinea en la parte superior */
-  left: 0; /* Alinea al inicio */
-  width: 100%; /* Estira al ancho completo */
-  background-color: #ffffff;
-  padding: 15px 0; /* Reduce el padding interno */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url('C:\Users\mikel\OneDrive\Escritorio\Time2Reserve\web\src\CSS/Imagenes/header.jpeg'); /* Cambia el path por tu imagen */
+  background-size: cover; /* Ajusta el tamaño de la imagen al ancho */
+  background-position: center; /* Centra la imagen */
+  padding: 15px 0;
   border-bottom: 2px solid #ddd;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  z-index: 1000; /* Mantén el header por encima del resto del contenido */
+  z-index: 1000;
 }
 
 .header h1 {
-  font-family: 'Playfair Display', serif; /* Fuente elegante para el título */
-  font-size: 2.8em; /* Tamaño ligeramente más grande */
-  font-weight: 700; /* Negrita */
-  color: #333; /* Texto oscuro */
-  margin: 5px 0; /* Menor espaciado superior e inferior */
-  letter-spacing: 1px; /* Añade espacio entre letras para elegancia */
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8em;
+  font-weight: 700;
+  color: #fff; /* Cambiar el color del texto para contrastar con la imagen */
+  margin: 5px 0;
+  letter-spacing: 1px;
 }
 
 .menu-container {
-  margin-top: 10px; /* Separación con el título */
+  margin-top: 10px;
 }
 
 .menu {
   display: flex;
-  justify-content: space-around; /* Espacio uniforme entre los elementos */
+  justify-content: space-around;
   align-items: center;
-  gap: 10px; /* Reduce el espaciado */
-  width: 100%; /* Haz que ocupen todo el ancho */
-  padding: 0 20px; /* Relleno lateral para un diseño más limpio */
+  gap: 10px;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .menu a {
-  font-family: 'Roboto', sans-serif; /* Fuente moderna para los enlaces */
+  font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  color: #555; /* Texto más oscuro */
-  font-size: 1.2em;
-  font-weight: 500; /* Peso medio */
-  transition: color 0.3s ease; /* Transición suave al pasar el mouse */
+  color: #333; /* Texto oscuro */
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #ccc; /* Borde gris claro */
+  padding: 8px 16px;
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .menu a:hover {
-  color: #007bff; /* Azul claro para resaltar */
+  background-color: #007bff; /* Fondo azul claro al pasar el mouse */
+  color: #fff; /* Texto blanco */
+  transform: scale(1.05); /* Zoom suave */
 }
 
 .logout-button {
-  font-family: 'Roboto', sans-serif; /* Fuente moderna para el botón */
-  background-color: #007bff; /* Botón azul */
+  font-family: 'Roboto', sans-serif;
+  background-color: #007bff;
   color: #fff;
   border: none;
   padding: 8px 16px;
-  font-size: 1em; /* Tamaño de letra ajustado */
-  font-weight: 500; /* Peso medio */
-  border-radius: 5px; 
+  font-size: 1em;
+  font-weight: 500;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .logout-button:hover {
-  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
-  transform: scale(1.05); /* Ligero zoom al pasar el mouse */
+  background-color: #0056b3;
+  transform: scale(1.05);
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../CSS/Home.css';
-import amaren from '../../CSS/Imagenes/amaren.jpg';
-import bertys from '../../CSS/Imagenes/bertys.jpg';
+import zubiburu from '../../CSS/Imagenes/zubiburu.jpg';
+import atseden from '../../CSS/Imagenes/atseden.jpg';
 import bodega from '../../CSS/Imagenes/bodega.jpg';
 import roostiq from '../../CSS/Imagenes/roostiq.jpg';
 import aranda from '../../CSS/Imagenes/aranda.jpg';
@@ -14,8 +14,8 @@ import clandestina from '../../CSS/Imagenes/clandestina.jpg';
 import DatosRestaurante from './DatosRestaurante';
 
 const restaurants = [
-  { name: "Restaurante Amaren Bilbao", image: amaren },
-  { name: "Restaurante Bertys", image: bertys },
+  { name: "Zubiburu", image: zubiburu },
+  { name: "Atseden Ledesma", image: atseden },
   { name: "La Bodega de Los Secretos", image: bodega },
   { name: "Roostiq", image: roostiq },
   { name: "El Asador de Aranda", image: aranda },
