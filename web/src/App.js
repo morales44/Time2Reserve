@@ -8,6 +8,7 @@ import Restaurante from './Components/restaurants/restaurantes';
 import Register from './Components/Auth/Register';
 import DetalleRestaurante from './Components/restaurants/DetalleRestaurante';
 import CiudadRestaurante from './Components/restaurants/CiudadRestaurante'; 
+import Favoritos from './Components/restaurants/Favoritos';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -55,6 +56,10 @@ function App() {
           <Route
             path="restaurants/city/:city"
             element={isAuthenticated ? <CiudadRestaurante /> : <Navigate to="/" />}
+          />
+          <Route
+            path="restaurants/favoritos"
+            element={isAuthenticated ? <Favoritos /> : <Navigate to="/" />}
           />
         </Routes>
       </>

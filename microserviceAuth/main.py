@@ -38,6 +38,10 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers
 )
 
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 # Modelo Pydantic para el registro y login de usuarios
 class User(BaseModel):
     name: str
@@ -116,6 +120,107 @@ async def google_login(user: dict):
         cursor.close()
         token = create_jwt_token({"sub": user["credentialResponseDecoded"]["name"]})
         return {"access_token": token, "token_type": "bearer"}
+    
+# Function to get the current user
+async def getCurrentUser(token: str = Depends(oauth2_scheme)):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        username = payload.get("sub")
+        if username is None:
+            raise HTTPException(status_code=401, detail="Credencial inválida")
+        return username
+    except jwt.PyJWTError:
+        raise HTTPException(status_code=401, detail="Credencial inválida")
+    
+# Route to get the current user
+@app.get("/auth/users/me")
+async def read_users_me(current_user: str = Depends(getCurrentUser)):
+    return {"username": current_user}
+
+    
+class AddFavoriteRestaurant(BaseModel):
+    restaurant: str # The name of the restaurant to add to the user's favorites
+
+class DeleteFavoriteRestaurant(BaseModel):
+    restaurant: str # The name of the restaurant to delete from the user's favorites
+
+class FavoriteRestaurant(BaseModel):
+    restaurantID: str 
+
+# Route to add a favorite restaurant to the user
+@app.post("/auth/favorite-restaurants/add")
+async def add_favorite_restaurant(
+        favorite_restaurant: AddFavoriteRestaurant,
+        current_user: str = Depends(getCurrentUser)
+    ):
+        cursor = db.cursor()
+        
+        # Check if the restaurant is already a favorite
+        query = "SELECT * FROM favoriteRestaurants WHERE username=%s AND restaurantID=%s"
+        cursor.execute(query, (current_user, favorite_restaurant.restaurant))
+        existing_favorite = cursor.fetchone()
+
+        if existing_favorite:
+            cursor.close()
+            raise HTTPException(status_code=400, detail="The restaurant is already a favorite")
+
+        # Add the restaurant to the user's favorites
+        insert_query = "INSERT INTO favoriteRestaurants (username, restaurantID) VALUES (%s, %s)"
+        cursor.execute(insert_query, (current_user, favorite_restaurant.restaurant))
+        
+        db.commit()
+        cursor.close()
+        
+        return {"message": "restaurant added to favorites successfully"}
+
+# Route to delete a favorite restaurant from the user
+@app.delete("/auth/favorite-restaurants/delete")
+async def delete_favorite_restaurant(
+        favorite_restaurant: DeleteFavoriteRestaurant,
+        current_user: str = Depends(getCurrentUser)
+    ):
+        cursor = db.cursor()
+        
+        # Delete the restaurant from the user's favorites
+        delete_query = "DELETE FROM favoriteRestaurants WHERE username=%s AND restaurantID=%s"
+        cursor.execute(delete_query, (current_user, favorite_restaurant.restaurant))
+        
+        db.commit()
+        cursor.close()
+        
+        return {"message": "restaurant deleted from favorites successfully"}
+
+# Route to get all the favorite restaurants of the user
+@app.get("/auth/favorite-restaurants/all", response_model=list)
+async def get_all_favorite_restaurants(current_user: str = Depends(getCurrentUser)):
+    cursor = db.cursor()
+    
+    # Get all the favorite restaurants of the user
+    query = "SELECT restaurantID, username FROM favoriteRestaurants WHERE username=%s"
+    cursor.execute(query, (current_user,))
+    favorite_restaurants = cursor.fetchall()
+    
+    cursor.close()
+    
+    return favorite_restaurants
+
+@app.post("/auth/favorite-restaurants/check")
+async def check_favorite_restaurant(
+    restaurant: FavoriteRestaurant,
+    current_user: str = Depends(getCurrentUser)
+):
+    cursor = db.cursor()
+    
+    # Check if the restaurant is a favorite
+    query = "SELECT * FROM favoriteRestaurants WHERE username=%s AND restaurantID=%s"
+    cursor.execute(query, (current_user, restaurant.restaurantID))
+    favorite_restaurant = cursor.fetchone()
+    
+    cursor.close()
+    
+    # Return true if an element is found, false otherwise
+    return {"isFavorite": favorite_restaurant is not None}
+
 
 if __name__ == "__main__":
     import uvicorn

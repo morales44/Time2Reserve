@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
 import "../../CSS/CiudadRestaurante.css";
-import ElSur from '../../CSS/Imagenes/ElSur.JPG';
 
 const CiudadRestaurante = () => {
   const { city } = useParams(); // Obtener la ciudad desde la URL

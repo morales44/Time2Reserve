@@ -15,7 +15,7 @@ import DatosRestaurante from './DatosRestaurante';
 
 const restaurants = [
   { name: "Zubiburu", image: zubiburu },
-  { name: "Atseden Ledesma", image: atseden },
+  { name: "Atseden Ledesma, 5", image: atseden },
   { name: "La Bodega de Los Secretos", image: bodega },
   { name: "Roostiq", image: roostiq },
   { name: "El Asador de Aranda", image: aranda },
@@ -49,7 +49,7 @@ const Home = () => {
         {/* Galería de restaurantes */}
         <div className="gallery">
           {restaurants.map((restaurant, index) => (
-           <DatosRestaurante restaurant = {restaurant} index = {index}/>
+           <DatosRestaurante restaurant = {restaurant} index = {index} token = {localStorage.getItem('token')}/>
           ))}
         </div>
       </section>

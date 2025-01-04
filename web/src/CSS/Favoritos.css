@@ -1,0 +1,17 @@
+.favorites {
+    align-items: center;
+    background-color: #ffffff;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    gap: 0px;
+    position: relative;
+}
+
+.favorites-header {
+    justify-content: top;
+}
+
+.favorite-elements {
+    justify-content: center;
+}
