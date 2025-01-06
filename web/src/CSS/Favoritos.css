@@ -1,17 +1,71 @@
 .favorites {
-    align-items: center;
+    margin-top: 80px; /* Asegúrate de que el contenido comience debajo del header */
+    padding: 20px;
     background-color: #ffffff;
     color: #333;
-    padding: 20px;
-    text-align: center;
-    gap: 0px;
-    position: relative;
+    height: calc(100vh - 80px); /* Calcula la altura restante después del header */
+    overflow-y: auto; /* Activa el desplazamiento vertical dentro del div */
+    box-sizing: border-box;
+    border-radius: 10px; /* Opcional: Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Sombra */
+    margin-top: 150px;
 }
+
 
 .favorites-header {
     justify-content: top;
 }
 
-.favorite-elements {
+.favorites-elements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+    gap: 20px; /* Espaciado entre las tarjetas */
+    padding: 20px;
     justify-content: center;
+}
+
+.restaurant-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.favorite-icon {
+    cursor: pointer;
+}
+
+.reload-container {
+    position: absolute;
+    bottom: 0px; /* Alineado al fondo */
+    right: 10px; /* Alineado a la derecha */
+    z-index: 1;
+}
+
+.reload-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reload-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
 }

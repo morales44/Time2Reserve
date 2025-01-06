@@ -7,93 +7,81 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa';
 const DetallesRestaurante = () => {
     const { name } = useParams();
     const navigate = useNavigate();
-    const location = useLocation(); // Para obtener la imagen pasada en el estado
+    const location = useLocation();
     const [restaurant, setRestaurant] = useState(null);
     const [loading, setLoading] = useState(true);
     const [isFavorite, setIsFavorite] = useState(false);
-    const {token} = localStorage.getItem('token');  
 
     useEffect(() => {
-        setRestaurant(null);
-        setLoading(true);
-
-        console.log("Buscando restaurante:", name);
-        axios
-            .get(`/api/restaurants/name/${name}`)
-            .then(response => {
-                console.log("Datos del restaurante:", response.data);
-                setRestaurant(response.data);
-                const fetchFavoriteStatus = async () => {
-                    try {
-                        console.log("token=", localStorage.getItem('token'));
-                        const response2 = await axios.post(
-                            'http://localhost:8000/auth/favorite-restaurants/check',
-                            { id: String(response.data.id) },
-                            {
-                                headers: {
-                                    Authorization: `Bearer ${localStorage.getItem('token')}` // Incluye el token en el encabezado
-                                }
-                            }
-                        );
-                        setIsFavorite(response2.data.isFavorite);
-                    } catch (error) {
-                        console.error('Error checking favorite state:', error);
-                    }
-                };
-        
-                fetchFavoriteStatus();
-            })
-            .catch(error => {
-                console.error("Error obteniendo los datos del restaurante:", error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, [name]);
-    
-        // Función para alternar el estado de favorito
-        const toggleFavorite = async () => {
+        const fetchRestaurantDetails = async () => {
             try {
-                setIsFavorite(!isFavorite);
-                console.log(localStorage.getItem('token'))
-                if (isFavorite) {
-                    try {
-                        console.log(restaurant.id);
-                        const response = await axios.delete(
-                            `http://localhost:8000/auth/favorite-restaurants/delete`,
-                            {
-                                headers: {
-                                    Authorization: `Bearer ${token}`
-                                }, data: { restaurant: restaurant.id }
-                            }
-                        );
-                
-                        console.log(response.data.message);
-                    } catch (error) {
-                        console.error('Error deleting favorite restaurant:', error);
-                    }
-                } else {
-                    try {
-                        const response = await axios.post(
-                            'http://localhost:8000/auth/favorite-restaurants/add',
-                            { restaurant: restaurant.id },
-                            {
-                                headers: {
-                                    Authorization: `Bearer ${token}`
-                                }
-                            }
-                        );
-                
-                        console.log(response.data.message);
-                    } catch (error) {
-                        console.error('Error adding favorite restaurant:', error);
-                    }
+                setLoading(true);
+                const response = await axios.get(`/api/restaurants/name/${name}`);
+                setRestaurant(response.data);
+
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    console.warn("Token no encontrado. Por favor, inicia sesión.");
+                    return;
                 }
+
+                const checkFavoriteResponse = await axios.post(
+                    'http://localhost:8000/auth/favorite-restaurants/check',
+                    { restaurantID: response.data.id }, // Ajusta según lo esperado por el backend
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+                setIsFavorite(checkFavoriteResponse.data.isFavorite);
             } catch (error) {
-                console.error('Error changing favorite state:', error);
+                console.error("Error obteniendo los datos del restaurante o estado de favorito:", error);
+            } finally {
+                setLoading(false);
             }
         };
-    
+
+        fetchRestaurantDetails();
+    }, [name]);
+
+    const toggleFavorite = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.warn("Token no encontrado. Por favor, inicia sesión.");
+                return;
+            }
+
+            if (isFavorite) {
+                const response = await axios.delete(
+                    'http://localhost:8000/auth/favorite-restaurants/delete',
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                        data: { restaurant: restaurant.id }, // Verifica el campo
+                    }
+                );
+                console.log(response.data.message);
+                setIsFavorite(false);
+            } else {
+                const response = await axios.post(
+                    'http://localhost:8000/auth/favorite-restaurants/add',
+                    { restaurant: restaurant.id }, // Verifica el campo
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+                console.log(response.data.message);
+                setIsFavorite(true);
+            }
+        } catch (error) {
+            console.error('Error cambiando el estado de favorito:', error);
+        }
+    };
 
     if (loading) {
         return <p>Cargando...</p>;
@@ -103,27 +91,24 @@ const DetallesRestaurante = () => {
         return <p>No se encontraron datos para el restaurante.</p>;
     }
 
-    const image = location.state?.image || ''; // Obtener la imagen pasada desde el Link
+    const image = location.state?.image || '';
 
     return (
         <div className="restaurant-details-container">
-            {/* Flecha de regreso */}
             <button className="back-button" onClick={() => navigate(-1)}>←</button>
-
-            {/* Imagen del restaurante */}
             <div className="restaurant-image">
                 <img src={image} alt={restaurant.name} />
             </div>
-
-            <div style={{ display: 'flex', justifyContent: 'flex-end', cursor: 'pointer' }} onClick={toggleFavorite}>
+            <div
+                style={{ display: 'flex', justifyContent: 'flex-end', cursor: 'pointer' }}
+                onClick={toggleFavorite}
+            >
                 {isFavorite ? (
-                    <FaHeart color="red" size={24} /> // Corazón lleno en rojo
+                    <FaHeart color="red" size={24} />
                 ) : (
-                    <FaRegHeart color="red" size={24} /> // Corazón contorno en rojo
+                    <FaRegHeart color="red" size={24} />
                 )}
             </div>
-
-            {/* Detalles del restaurante */}
             <h2>{restaurant.name}</h2>
             <p>id: {restaurant.id}</p>
             <p>Ciudad: {restaurant.ciudad}</p>
