@@ -35,6 +35,10 @@ const Home = () => {
     <main className="home" role="main">
       <section className="contenido">
         {/* Barra de búsqueda */}
+        <div className="titulo">
+          LOS MÁS BUSCADOS
+        </div>
+        {/* Barra de búsqueda */}
         <div className="search-bar1">
           <input
             type="text"

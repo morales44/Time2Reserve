@@ -34,36 +34,15 @@
   border-radius: 0; /* Sin bordes redondeados */
 }
 
-
-.search-bar1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  width: 100%;
-}
-
-.search-input1 {
-  width: 85%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-
-.search-button1 {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.search-button1:hover {
-  background-color: #0056b3;
+.titulo{
+  color: white; 
+  font-size: 3rem; 
+  text-align: center; 
+  font-weight: bold; 
+  font-family: 'Arial', sans-serif; 
+  line-height: 1.5; 
+  margin: 20px auto; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Galería de fotos */
