@@ -34,20 +34,8 @@ const Home = () => {
   return (
     <main className="home" role="main">
       <section className="contenido">
-        {/* Barra de búsqueda */}
         <div className="titulo">
           LOS MÁS BUSCADOS
-        </div>
-        {/* Barra de búsqueda */}
-        <div className="search-bar1">
-          <input
-            type="text"
-            className="search-input1"
-            placeholder="Buscar restaurantes..."
-          />
-          <button className="search-button1" type="button">
-            Buscar
-          </button>
         </div>
 
         {/* Galería de restaurantes */}

@@ -1,0 +1,94 @@
+/* Fondo general */
+.busqueda-home {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding-top: 10vh;
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: 200px;
+  }
+  
+  .busqueda-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(109, 109, 108, 0.9); 
+    margin: 0;
+    width: 93vw; /* Abarca todo el ancho de la ventana */
+    height: auto; /* Se adapta al contenido */
+    max-height: 70vh; /* Limita la altura para permitir el desplazamiento */
+    overflow-y: auto; /* Habilita la barra de desplazamiento vertical */
+    box-shadow: none; /* Elimina la sombra */
+    border-radius: 0; /* Sin bordes redondeados */
+  }
+  
+  .busqueda-apartado {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  
+  .busqueda-label {
+    display: block;
+    font-size: 1.2rem;
+    color: white; /* Texto blanco */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .busqueda-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px; /* Bordes redondeados */
+    background: #D9D9D9; /* Color gris claro */
+    outline: none;
+  }
+  
+  .busqueda-select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px; /* Bordes redondeados */
+    background: #D9D9D9; /* Color gris claro */
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .busqueda-boton-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .busqueda-search-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #F2C94C; /* Texto amarillo */
+    background-color: white; /* Fondo blanco */
+    border: none;
+    border-radius: 30px; /* Bordes redondeados */
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .busqueda-search-button:hover {
+    transform: scale(1.1); /* Agrandar ligeramente */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra al pasar */
+  }
+  
