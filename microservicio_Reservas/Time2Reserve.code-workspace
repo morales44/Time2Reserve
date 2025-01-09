@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../biciTech"
+		},
+		{
+			"path": "../../recipeFinder"
+		}
+	],
+	"settings": {}
+}

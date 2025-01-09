@@ -70,9 +70,9 @@ async function uploadData(restaurantes, ciudad) {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Restaurante'
+ *               $ref: '#/components/schemas/Restaurant'
  *       404:
- *         description: Restaurante not found
+ *         description: Restaurant not found
  *       500:
  *         description: Error retrieving the data
  */
@@ -130,9 +130,9 @@ app.get('/restaurants/city/:city', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Restaurante'
+ *               $ref: '#/components/schemas/Restaurant'
  *       404:
- *         description: Restaurante not found
+ *         description: Restaurant not found
  *       500:
  *         description: Error retrieving the data
  */
@@ -167,9 +167,9 @@ app.get('/restaurants/id/:restauranteID', async (req, res) => {
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Restaurante'
+ *               $ref: '#/components/schemas/Restaurant'
  *       404:
- *         description: Restaurante not found
+ *         description: Restaurant not found
  *       500:
  *         description: Error retrieving the data
  */
@@ -240,7 +240,7 @@ const swaggerOptions = {
       },
       components: {
           schemas: {
-              Restaurante: {
+              Restaurant: {
                   type: 'object',
                   properties: {
                       id: { type: 'string' },
