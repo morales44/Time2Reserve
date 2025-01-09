@@ -240,7 +240,7 @@ const swaggerOptions = {
       },
       components: {
           schemas: {
-              Restaurant: {
+              Restaurante: {
                   type: 'object',
                   properties: {
                       id: { type: 'string' },
