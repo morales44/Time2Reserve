@@ -15,7 +15,6 @@ const Header = ({ onLogout }) => {
           <Link to="/home">Inicio</Link>
           <Link to="/restaurantes" className="details-button">Restaurantes</Link>
           <Link to="/restaurants/favoritos">Favoritos</Link>
-          <Link to="/busqueda" className="details-button">Búsqueda</Link>
           <button onClick={handleLogout} className="logout-button">
             Cerrar sesión
           </button>

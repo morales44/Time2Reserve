@@ -110,7 +110,6 @@ const DetallesRestaurante = () => {
                 )}
             </div>
             <h2>{restaurant.name}</h2>
-            <p>id: {restaurant.id}</p>
             <p>Ciudad: {restaurant.ciudad}</p>
             <p>Dirección: {restaurant.barrio}</p>
             <p>Teléfono: {restaurant.telefono}</p>
