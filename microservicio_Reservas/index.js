@@ -5,6 +5,8 @@ const port = 7000
 const axios = require('axios')
 const mongoose = require('mongoose')
 const connectDB = require('./config/db');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 connectDB();
 
@@ -50,6 +52,31 @@ async function uploadData(restaurantes, ciudad) {
   }
 }
 
+/**
+ * @swagger
+ * /restaurants/city/{city}:
+ *   get:
+ *     description: Get the data from the database by city
+ *     parameters:
+ *       - in: path
+ *         name: city
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The city of the restaurant
+ *     responses:
+ *       200:
+ *         description: Data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Restaurante'
+ *       404:
+ *         description: Restaurante not found
+ *       500:
+ *         description: Error retrieving the data
+ */
+
 app.get('/restaurants/city/:city', async (req, res) => {
   try {
     const city = req.params.city
@@ -85,6 +112,31 @@ app.get('/restaurants/city/:city', async (req, res) => {
   }
 })
 
+/**
+ * @swagger
+ * /restaurants/id/{restauranteID}:
+ *   get:
+ *     description: Get the data from the database by ID
+ *     parameters:
+ *       - in: path
+ *         name: restauranteID
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The ID of the restaurant
+ *     responses:
+ *       200:
+ *         description: Data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Restaurante'
+ *       404:
+ *         description: Restaurante not found
+ *       500:
+ *         description: Error retrieving the data
+ */
+
 app.get('/restaurants/id/:restauranteID', async (req, res) => {
   try {
       const restaurante = await Restaurante.findOne({ id: req.params.restauranteID });
@@ -97,6 +149,31 @@ app.get('/restaurants/id/:restauranteID', async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /restaurants/name/{restauranteName}:
+ *   get:
+ *     description: Get the data from the database by name
+ *     parameters:
+ *       - in: path
+ *         name: restauranteName
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The name of the restaurant
+ *     responses:
+ *       200:
+ *         description: Data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Restaurante'
+ *       404:
+ *         description: Restaurante not found
+ *       500:
+ *         description: Error retrieving the data
+ */
+
 app.get('/restaurants/name/:restauranteName', async (req, res) => {
   try {
       const restaurante = await Restaurante.findOne({ name: req.params.restauranteName });
@@ -108,6 +185,26 @@ app.get('/restaurants/name/:restauranteName', async (req, res) => {
       res.status(500).json({ error: error.message });
   }
 });
+
+/**
+ * @swagger
+ * /restaurants/getCategories:
+ *   get:
+ *     description: Get the categories from the database 
+ *     responses:
+ *       200:
+ *         description: Data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/categoria'
+ *       404:
+ *         description: Restaurante not found
+ *       500:
+ *         description: Error retrieving the data
+ */
 
 app.get('/restaurants/getCategories', async (req, res) => {
   try {
@@ -131,6 +228,43 @@ app.get('/restaurants/getCategories', async (req, res) => {
     console.log("error al obtener todas las categorias: " + error)
   }
 })
+
+// Configuración de Swagger
+const swaggerOptions = {
+  swaggerDefinition: {
+      openapi: '3.0.0',
+      info: {
+          title: 'Restaurants API',
+          version: '1.0.0',
+          description: 'Restaurants API documentation',
+      },
+      components: {
+          schemas: {
+              Restaurant: {
+                  type: 'object',
+                  properties: {
+                      id: { type: 'string' },
+                      abierto: { type: 'boolean' },
+                      categorias: { type: 'array' },
+                      name: { type: 'string' },
+                      barrio: { type: 'string' },
+                      ciudad: { type: 'string' },
+                      telefono: { type: 'string' },
+                  },
+              },
+              categoria:{
+                type: 'string'
+              }
+          },
+      },
+  },
+  apis: [__filename],
+};
+
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Agregar Swagger a Express
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(port, () => {
     console.log("Servidor escuchando en puerto " + port)
