@@ -1,27 +1,24 @@
-/* Contenedor general */
 .restaurant-details-container {
     position: relative;
     background-color: #fff;
-    width: 80vw; /* Ocupa el ancho completo */
-    height: 75vh; /* Ocupa el alto completo */
+    width: 80vw; 
+    height: 75vh; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-top: 140px; /* Espacio entre el header y el contenido */
+    margin-top: 140px; 
     padding: 20px;
 }
 
-/* Imagen del restaurante */
 .restaurant-image img {
     width: 100%;
-    height: 45vh; /* La mitad de la pantalla para la imagen */
+    height: 45vh; 
     object-fit: cover;
     border-bottom: 2px solid #ccc;
 }
 
-/* Botón de flecha */
 .back-button {
     position: absolute;
     top: 20px;
@@ -38,33 +35,29 @@
     color: #007BFF;
 }
 
-/* Estilo del título */
 h2 {
-    font-size: 28px; /* Tamaño más grande */
-    font-weight: 700; /* Peso fuerte */
-    color: #444; /* Un gris oscuro elegante */
+    font-size: 28px; 
+    font-weight: 700; 
+    color: #444; 
     text-align: center;
-    text-transform: uppercase; /* Letras en mayúsculas */
+    text-transform: uppercase; 
     margin-bottom: 15px;
-    font-family: 'Georgia', serif; /* Fuente elegante */
+    font-family: 'Georgia', serif; 
 }
 
-/* Estilo del texto descriptivo */
 p {
-    font-size: 18px; /* Tamaño de fuente medio */
-    color: #555; /* Color gris oscuro */
-    line-height: 1.6; /* Espaciado entre líneas */
+    font-size: 18px; 
+    color: #555; 
+    line-height: 1.6; 
     margin: 5px 0;
-    font-family: 'Arial', sans-serif; /* Fuente legible */
+    font-family: 'Arial', sans-serif; 
 }
 
-/* Enfatizar elementos clave */
 p strong {
-    color: #000; /* Negro fuerte para palabras clave */
+    color: #000; 
     font-weight: bold;
 }
 
-/* Animación sutil para los textos */
 p, h2 {
     animation: fadeIn 0.8s ease-in-out;
 }

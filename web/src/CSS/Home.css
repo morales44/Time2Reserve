@@ -1,4 +1,3 @@
-/* Fondo general */
 .home {
   display: flex;
   flex-direction: column;
@@ -26,12 +25,12 @@
   padding: 2rem;
   background: rgba(109, 109, 108, 0.9); 
   margin: 0;
-  width: 93vw; /* Abarca todo el ancho de la ventana */
-  height: auto; /* Se adapta al contenido */
-  max-height: 70vh; /* Limita la altura para permitir el desplazamiento */
-  overflow-y: auto; /* Habilita la barra de desplazamiento vertical */
-  box-shadow: none; /* Elimina la sombra */
-  border-radius: 0; /* Sin bordes redondeados */
+  width: 93vw; 
+  height: auto; 
+  max-height: 70vh; 
+  overflow-y: auto; 
+  box-shadow: none; 
+  border-radius: 0; 
 }
 
 .titulo{
@@ -45,14 +44,13 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Galería de fotos */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-  gap: 2rem; /* Más separación entre los div blancos */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 2rem; 
   width: 100%;
-  max-width: 800px; /* Ancho máximo */
-  overflow-y: auto; /* Habilita el desplazamiento vertical */
+  max-width: 800px; 
+  overflow-y: auto; 
 }
 
 .gallery-item {
@@ -64,17 +62,17 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación al pasar el cursor */
-  margin: 1rem; /* Más separación alrededor de cada div */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  margin: 1rem; 
 }
 
 .gallery-item img {
   width: 100%;
-  max-width: 200px; /* Tamaño uniforme para las imágenes */
-  height: 150px; /* Fija una altura para todas las imágenes */
-  object-fit: cover; /* Recorta la imagen para que se ajuste al contenedor */
+  max-width: 200px; 
+  height: 150px; 
+  object-fit: cover; 
   border-radius: 4px;
-  transition: transform 0.3s ease; /* Animación para la imagen */
+  transition: transform 0.3s ease; 
 }
 
 
@@ -83,31 +81,29 @@
   font-size: 0.9rem;
   color: #555;
   text-align: center;
-  transition: font-size 0.3s ease; /* Animación para el texto */
+  transition: font-size 0.3s ease; 
 }
 
-/* Efectos al pasar el cursor */
 .gallery-item:hover {
-  transform: scale(1.1); /* Agranda el div completo */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+  transform: scale(1.1); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1); /* Agranda la imagen */
+  transform: scale(1.1); 
 }
 
 .gallery-item:hover p {
-  font-size: 1rem; /* Agranda el texto */
+  font-size: 1rem; 
 }
 
-/* Popup de detalles del restaurante */
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+  background: rgba(0, 0, 0, 0.8); 
   color: #fff;
   display: flex;
   flex-direction: column;

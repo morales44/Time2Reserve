@@ -60,7 +60,7 @@ const DetallesRestaurante = () => {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
-                        data: { restaurant: restaurant.id }, // Verifica el campo
+                        data: { restaurant: restaurant.id }, 
                     }
                 );
                 console.log(response.data.message);

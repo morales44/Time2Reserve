@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
+import { useParams, Link, useNavigate } from "react-router-dom"; 
 import "../../CSS/CiudadRestaurante.css";
 
 const CiudadRestaurante = () => {

@@ -68,7 +68,7 @@ const Auth = ({onLogin})=> {
           }
         } catch (error) {
           console.error("Google login error:", error);
-          setError("Error login with google."); // Mensaje de error para Google
+          setError("Error login with google."); 
         }
       };
 

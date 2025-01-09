@@ -1,13 +1,13 @@
 .favorites {
-    margin-top: 80px; /* Asegúrate de que el contenido comience debajo del header */
+    margin-top: 80px; 
     padding: 20px;
     background-color: #ffffff;
     color: #333;
-    height: calc(100vh - 80px); /* Calcula la altura restante después del header */
-    overflow-y: auto; /* Activa el desplazamiento vertical dentro del div */
+    height: calc(100vh - 80px); 
+    overflow-y: auto; 
     box-sizing: border-box;
-    border-radius: 10px; /* Opcional: Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Sombra */
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     margin-top: 150px;
 }
 
@@ -18,8 +18,8 @@
 
 .favorites-elements {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
-    gap: 20px; /* Espaciado entre las tarjetas */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
     padding: 20px;
     justify-content: center;
 }
@@ -50,8 +50,8 @@
 
 .reload-container {
     position: absolute;
-    bottom: 0px; /* Alineado al fondo */
-    right: 10px; /* Alineado a la derecha */
+    bottom: 0px; 
+    right: 10px; 
     z-index: 1;
 }
 
@@ -67,5 +67,5 @@
 }
 
 .reload-button:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    background-color: #0056b3; 
 }
